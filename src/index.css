@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-secondary font-sans antialiased;
+    margin: 0;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display text-primary tracking-tight;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-surface-highest/60 backdrop-blur-xl border-none;
+  }
+
+  .btn-primary {
+    @apply px-6 py-2 bg-primary text-background font-semibold rounded-md transition-all duration-300
+           hover:shadow-[0_0_15px_rgba(195,245,255,0.4)] hover:brightness-110 active:scale-95;
+  }
+
+  .btn-ghost {
+    @apply px-6 py-2 bg-transparent text-primary font-semibold rounded-md transition-all duration-300
+           hover:bg-primary/10 border border-primary/20;
+  }
+
+  .card {
+    @apply bg-surface-high p-6 rounded-lg transition-transform duration-300;
+  }
+
+  /* Custom Notched Progress Bar - SMR Style */
+  .progress-notched {
+    @apply h-2 bg-surface-low rounded-full overflow-hidden flex gap-1;
+  }
+
+  .progress-notched-segment {
+    @apply flex-1 h-full bg-primary/20 transition-all duration-500;
+  }
+
+  .progress-notched-segment.active {
+    @apply bg-primary shadow-[0_0_8px_rgba(195,245,255,0.6)];
+  }
+}
+
+/* Hide scrollbar for technical look but keep functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Leaflet custom div icons — reactor NO-GO labels */
+.leaflet-no-go-label {
+  background: transparent !important;
+  border: none !important;
+}
+.leaflet-grid-node {
+  background: transparent !important;
+  border: none !important;
+}
+.leaflet-grid-node .grid-node-pill {
+  background: rgba(251, 191, 36, 0.96);
+  color: #1c1917;
+  border: 1px solid #fde68a;
+  border-radius: 3px;
+  padding: 4px 8px;
+  font: 700 10px/1.2 Inter, system-ui, sans-serif;
+  letter-spacing: 0.04em;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
+  white-space: nowrap;
+}
+
+.leaflet-no-go-label .no-go-pill {
+  background: rgba(127, 29, 29, 0.94);
+  color: #fecaca;
+  border: 1px solid #f87171;
+  border-radius: 4px;
+  padding: 5px 12px;
+  font: 700 11px/1.2 Inter, system-ui, sans-serif;
+  letter-spacing: 0.08em;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.55);
+  white-space: nowrap;
+  text-transform: uppercase;
+}
